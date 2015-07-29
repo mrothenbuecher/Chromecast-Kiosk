@@ -1,3 +1,4 @@
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mkuerbis/chromecast-kiosk/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 # Chromecast-Kiosk
 A system to create a digital signage system with google chromecasts. 
 
