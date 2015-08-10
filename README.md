@@ -15,7 +15,7 @@ alpha
 ## Benefits
 * see what your casts are doing
 * set the website which shall be displayed based on [chromecast-dashboard](https://github.com/boombatower/chromecast-dashboard)
-* you don't need a system which runs chrome all the time, because if you set the stream it runs alone independent of the browser
+* you don't need a system which runs google chrome the whole time to keep the cast extension running
 * you can manage multiple chromecast in one browser
 
 ## Installation
