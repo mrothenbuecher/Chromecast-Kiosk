@@ -59,21 +59,16 @@ function sessionUpdateListener(isAlive) {
 function receiverListener(e) {
   if (e !== 'available') {
 	  //TODO Nachricht
-	  //alert('No Chromecast receivers available');
+	  alert('No Chromecast receivers available');
   }
 }
 
 function sendMessage(message) {
-  if (session != null) {
-    session.sendMessage(namespace, message, onSuccess.bind(this, message), onError);
-  }
-  else {
     chrome.cast.requestSession(function(e) {
       session = e;
       sessionListener(e);
       session.sendMessage(namespace, message, onSuccess.bind(this, message), onError);
     }, onError);
-  }
 }
 
 function stopApp() {
