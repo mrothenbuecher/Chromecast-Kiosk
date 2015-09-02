@@ -2,8 +2,8 @@
  * Main JavaScript for handling Chromecast interactions.
  */
 
-var applicationID = 'F7FD2183';
-var namespace = 'urn:x-cast:com.boombatower.chromecast-dashboard';
+var applicationID = '10B2AF08';
+var namespace = 'urn:x-cast:de.michaelkuerbis.kiosk';
 var session = null;
 
 if (!chrome.cast || !chrome.cast.isAvailable) {
@@ -58,9 +58,10 @@ function sessionUpdateListener(isAlive) {
 
 function receiverListener(e) {
   if (e !== 'available') {
-	  //TODO Nachricht
-	  alert('No Chromecast receivers available');
+    //TODO Nachricht
+    alert('No Chromecast receivers available');
   }
+  console.log(e);
 }
 
 function sendMessage(message) {

@@ -1,0 +1,19 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.container iframe {
+  height: calc(100% + 28px);
+  width: 100% !important;
+  border: 0;
+  z-index: 100;
+}
