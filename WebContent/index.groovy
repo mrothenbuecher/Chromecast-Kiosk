@@ -7,8 +7,9 @@ html.html('lang':"de"){
 		meta( name:"generator", content:"Bootply")
 		meta( name:"viewport", content:"width=device-width, initial-scale=1, maximum-scale=1")
 		link( href:"assets/css/bootstrap.min.css", rel:"stylesheet")
+		link( href:"assets/css/toastr.min.css", rel:"stylesheet")
 		link( href:"assets/css/styles.css", rel:"stylesheet")
-		script( type:"text/javascript" ,src:"https://www.gstatic.com/cv/js/sender/v1/cast_sender.js")
+		script(src:"//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js")
 	}
 	body{
 		div( class:"navbar navbar-default navbar-static-top"){
@@ -41,9 +42,9 @@ html.html('lang':"de"){
 		include('/WEB-INF/sender.groovy')
 		include('/WEB-INF/help.groovy')
 
-		script(src:"//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js")
 		script(src:"assets/js/bootstrap.min.js")
 		script(src:"assets/js/spin.min.js")
+		script(src:"assets/js/toastr.min.js")
 		script(src:"assets/js/main.js")
 	}
 }
