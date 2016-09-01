@@ -15,7 +15,7 @@ import su.litvak.chromecast.api.v2.ChromeCast;
 
 @Path("/status")
 public class StatusREST {
-
+	
 	@GET
 	@Path("/get/{ip}")
 	public Response getStatus(@PathParam("ip") String ip) {

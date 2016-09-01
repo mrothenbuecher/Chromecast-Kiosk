@@ -3,17 +3,16 @@ package de.michaelkuerbis.presenter.rest;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-import de.michaelkuerbis.presenter.utils.KioskRequest;
 import su.litvak.chromecast.api.v2.Application;
 import su.litvak.chromecast.api.v2.ChromeCast;
 import su.litvak.chromecast.api.v2.Status;
+import de.michaelkuerbis.presenter.utils.KioskRequest;
 
 @Path("/start")
 public class StartREST {
@@ -38,7 +37,7 @@ public class StartREST {
 				}
 				else return Response
 						.status(Response.Status.BAD_REQUEST)
-						.entity("app is not aviable")
+						.entity("app is not available")
 						.build();
 			} else {
 				return Response

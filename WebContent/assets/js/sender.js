@@ -3,9 +3,9 @@ function launch(ip, name) {
 		url : $('#url').val(),
 		reload : $('#refresh').val(),
 	}).done(function() {
-		toastr['info']("Übertragung auf " + name + " erfolgreich gestartet");
+		toastr['info']("Started on " + name + " successfully");
 	}).fail(function() {
-		toastr['error']("Übertragung auf " + name + " fehlgeschlagen");
+		toastr['error']("Error on " + name);
 	});
 }
 
@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 	$('#launch').click(function() {
 		if (!$('#url').val()) {
-			toastr['warning']("Es muss eine URL angegeben werden");
+			toastr['warning']("Please insert url");
 		} else {
 			var all = $('#all').prop("checked");
 			if (all) {
@@ -26,7 +26,7 @@ $(document).ready(function() {
 				if ($option) {
 					launch($option.val(), $option.text());
 				} else {
-					toastr['warning']("Es muss ein empfänger ausgewählt werden");
+					toastr['warning']("Please select chromecast");
 				}
 
 			}

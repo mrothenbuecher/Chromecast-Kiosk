@@ -38,4 +38,9 @@
 		<servlet-class>de.michaelkuerbis.presenter.servlets.SettingsServlet</servlet-class>
 		<load-on-startup>3</load-on-startup>
 	</servlet>
+	<servlet>
+		<servlet-name>DiscoveryServlet</servlet-name>
+		<servlet-class>de.michaelkuerbis.presenter.servlets.ChromeCastDiscoverServlet</servlet-class>
+		<load-on-startup>4</load-on-startup>
+	</servlet>
 </web-app>

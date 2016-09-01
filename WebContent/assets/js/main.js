@@ -97,6 +97,25 @@ function requestEach(){
 	});
 }
 
+function addCast (ip, name){
+	$.ajax({
+		type : "POST",
+		url : "rest/settings/add/" + ip+"/"+name
+	}).done(function(data, textStatus, jqXHR) {
+		var obj = JSON.parse(data);
+		if(obj['error']){
+			toastr['warning'](obj['error']);
+			console.log("error:"+obj['error']);
+		}else{
+			location.reload();
+		}
+	}).fail(function(jqXHR, textStatus, errorThrown) {
+		console.log("error");
+	}).always(function() {
+		
+	});
+}
+
 $(document).ready(function() {
 	requestEach();
 	
@@ -107,21 +126,7 @@ $(document).ready(function() {
 		if(ip && name){
 			$('#addip').val("");
 			$('#addname').val("");
-			$.ajax({
-				type : "POST",
-				url : "rest/settings/add/" + ip+"/"+name
-			}).done(function(data, textStatus, jqXHR) {
-				var obj = JSON.parse(data);
-				if(data['error']){
-					console.log("error:"+data['error']);
-				}else{
-					location.reload();
-				}
-			}).fail(function(jqXHR, textStatus, errorThrown) {
-				console.log("error");
-			}).always(function() {
-				
-			});
+			addCast(ip,name);
 		}
 	});
 	
@@ -144,8 +149,8 @@ $(document).ready(function() {
 				url : "rest/settings/remove/" + ip
 			}).done(function(data, textStatus, jqXHR) {
 				var obj = JSON.parse(data);
-				if(data['error']){
-					console.log("error:"+data['error']);
+				if(obj['error']){
+					toastr['warning'](obj['error']);
 				}else{
 					location.reload();
 				}
@@ -167,6 +172,34 @@ $(document).ready(function() {
 		requestEach();
 	});
 
+	$('#searchcasts').click(function(ev) {
+		//ev.preventDefault();
+
+		$.ajax({
+			type : "GET",
+			url : "rest/discovered/get",
+			beforeSend: function() {
+				$('#discoverchromecast').find('.modal-body').html("");
+			}
+		}).done(function(data, textStatus, jqXHR) {
+			var obj = JSON.parse(data);
+			$.each(obj, function(i,elem){
+				console.log(elem);
+				var row ='<div class="row"><div class="col-xs-12">';
+				row += '<button class="btn btn-default discover-add" data-name="'+elem.name+'" data-ip="'+elem.ip+'">add '+elem.name+" "+elem.ip+'</button>';
+				row +="</div></div>"
+				$('#discoverchromecast').find('.modal-body').append(row);
+			});
+			$('.discover-add').click(function(ev){
+				ev.preventDefault();
+				addCast($(this).data("ip"),$(this).data("name"));
+			});
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			//TODO error
+			console.log("error");
+		});
+	});
+	
 	$('#senderbutton').click(function(ev) {
 		ev.preventDefault();
 		$(this).parent().addClass("active");

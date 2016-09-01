@@ -11,6 +11,9 @@ html.div {
 					button(class:"btn btn-default", id:"refreshall", style:"height: 34px;"){
 						span(class:"glyphicon glyphicon-refresh", " ")
 					}
+					button(class:"btn btn-default",id:"searchcasts", 'data-toggle':"modal", 'data-target':"#discoverchromecast", style:"height: 34px;"){
+						span(class:"glyphicon glyphicon-search", " ")
+					}
 				}
 			}
 		}
@@ -84,6 +87,21 @@ html.div {
 					}
 					div (class:"modal-footer"){
 						button( type:"button", id:"addcastbutton", class:"btn btn-primary", "add Chromecast")
+					}
+				}
+			}
+		}
+		div( class:"modal fade", id:"discoverchromecast", tabindex:"-1", role:"dialog", 'aria-labelledby':"myModalLabel"){
+			div (class:"modal-dialog", role:"document"){
+				div (class:"modal-content"){
+					div (class:"modal-header"){
+						button( type:"button", class:"close", 'data-dismiss':"modal", 'aria-label':"Close"){
+							span( 'aria-hidden':"true", "x")
+						}
+						h4( class:"modal-title", id:"myModalLabel", "Discover Chromecasts")
+					}
+					div (class:"modal-body"){
+						h1("fooo")
 					}
 				}
 			}
