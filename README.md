@@ -10,7 +10,7 @@ alpha
 * Use ethernet instead of wlan, see [DIY Ethernet Adapter](https://productforums.google.com/forum/#!topic/chromecast/xo_NDh5CZA8).
 * Set a static ip address to the chromecast.
 * Use subneting to protect your casts from unwanted access.
-* use Google Chrome and the Google Cast (beta) extension
+* ~~use Google Chrome and the Google Cast (beta) extension~~
 
 ## Benefits
 * see what your casts are doing
@@ -23,7 +23,7 @@ All you need todo is deploy the presenter.war in the webapps directory of a Tomc
 
 ## Start casting
 1. add a ChromeCast, by IP and Name
-2. set the url and the refresh rate of the website you want to be displayed (requires Google Chrome with Cast Ext.)
+2. set target chromecast, the url and the refresh rate of the website you want to be displayed ~~(requires Google Chrome with Cast Ext.)~~
 3. see if they are still alive an playing
 
 ## Thanks to
