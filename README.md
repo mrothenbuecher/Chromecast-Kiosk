@@ -4,7 +4,7 @@ A system to create a digital signage system with google chromecasts.
 ![screenshot](https://raw.githubusercontent.com/mkuerbis/Chromecast-Kiosk/master/img/overview-screenshot.png "screenshot")
 
 ### release state
-alpha
+beta
 
 ## Recommendations
 * Use ethernet instead of wlan, see [DIY Ethernet Adapter](https://productforums.google.com/forum/#!topic/chromecast/xo_NDh5CZA8).
@@ -14,6 +14,7 @@ alpha
 
 ## Benefits
 * see what your casts are doing
+* discover the chromecast in your network
 * set the website which shall be displayed based on [chromecast-dashboard](https://github.com/boombatower/chromecast-dashboard)
 * you don't need a system which runs google chrome the whole time to keep the cast extension running
 * you can manage multiple chromecast in one browser
