@@ -48,9 +48,10 @@ public class StartREST {
 		} catch (IOException | GeneralSecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
 		}
 
-		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+		
 	}
 
 }

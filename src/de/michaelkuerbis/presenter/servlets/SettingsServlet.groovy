@@ -16,25 +16,30 @@ public class SettingsServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -9121110689011730052L;
 
-	
+
 	private static def settings;
-	
+
 	private static Vector<CastConnection> connection;
-	
+
 	@Override
 	public void init() throws ServletException{
 		reloadSettings(this.getServletContext());
 	}
-	
+
 	public static void reloadSettings(ServletContext context){
 		connection = new Vector<CastConnection>();
 		//TODO no config file ...
 		settings = new JsonSlurper().parse(context.getResource("/WEB-INF/config/settings.json"), "UTF-8")
 		for(def con in settings.castconnections){
-			connection.add(new CastConnection(con.ip, con.name));
+			if(con.isDefault == null){
+				connection.add(new CastConnection(con.ip, con.name));
+			}
+			else{
+				connection.add(new CastConnection(con.ip, con.name, con.isDefault));
+			}
 		}
 	}
-	
+
 	public static boolean saveSettings(ServletContext context){
 		JSONObject obj = new JSONObject();
 		JSONArray castconnections = new JSONArray();
@@ -42,6 +47,7 @@ public class SettingsServlet extends HttpServlet {
 			JSONObject foo = new JSONObject();
 			foo.put("ip", con.getIp())
 			foo.put("name", con.getName());
+			foo.put("isDefault", con.isDefault());
 			castconnections.add(foo);
 		}
 		obj.put("castconnections", castconnections);
@@ -54,17 +60,17 @@ public class SettingsServlet extends HttpServlet {
 			return false;
 		}
 	}
-	
+
 	public static Vector<CastConnection> getConnections(){
 		return connection;
 	}
-	
+
 	public static void setConnections(Vector<CastConnection> connection){
 		this.connection = connection;
 	}
-	
+
 	public static JsonSlurper getConfig(){
 		return settings;
 	}
-	
+
 }

@@ -33,7 +33,7 @@ html.div {
 								button(class:"btn btn-default btn-xs panelrefresh", style:"min-height: 28px;"){
 									span(class:"glyphicon glyphicon-refresh", 'aria-hidden':"true")
 								}
-								
+
 								button(class:"btn btn-default btn-xs paneltrash btn-warning pull-right", style:"min-height: 28px;"){
 									span(class:"glyphicon glyphicon-trash", 'aria-hidden':"true")
 								}
@@ -46,6 +46,22 @@ html.div {
 								p(class:"status")
 								p("App:")
 								p(class:"application")
+								div(class:"btn-group toogle-option", 'data-toggle':"buttons"){
+									a(href:"#",class:"btn btn-primary option-default "+(con.isDefault()?"active":""),'data-ip':con.getIp(),"default"){
+										if(con.isDefault()){
+											input( type:"radio", name:"options", autocomplete:"off", checked:"")
+										}else{
+											input( type:"radio", name:"options", autocomplete:"off")
+										}
+									}
+									a(href:"#",class:"btn btn-primary option-info "+(!con.isDefault()?"active":""),'data-ip':con.getIp(),"info"){
+										if(!con.isDefault()){
+											input( type:"radio", name:"options", autocomplete:"off", checked:"")
+										}else{
+											input( type:"radio", name:"options", autocomplete:"off")
+										}
+									}
+								}
 							}
 							div(class:"alert alert-warning trashmsg", style:"display:none;"){
 								p(class:"text-center", "Remove this chromecast?")
@@ -98,11 +114,9 @@ html.div {
 						button( type:"button", class:"close", 'data-dismiss':"modal", 'aria-label':"Close"){
 							span( 'aria-hidden':"true", "x")
 						}
-						h4( class:"modal-title", id:"myModalLabel", "Discover Chromecasts")
+						h4( class:"modal-title", id:"myModalLabel", "discovered Chromecasts")
 					}
-					div (class:"modal-body"){
-						h1("fooo")
-					}
+					div (class:"modal-body"){ h1("fooo") }
 				}
 			}
 		}

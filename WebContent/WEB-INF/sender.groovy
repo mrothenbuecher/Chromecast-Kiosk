@@ -8,22 +8,22 @@ html.div {
 		}
 		div(class:"col-xs-12"){
 			div(class:"form-horizontal"){
-				
+
 				div( class:"form-group"){
 					label(class:"col-sm-2 control-label", "Receiver:")
 					div( class:"col-sm-10"){
 						select(id:"receiver-ip", class:"form-control"){
 							for(CastConnection con: SettingsServlet.getConnections()){
-								option(value:con.getIp(),con.getName())
+								option(value:con.getIp(),"data-default":con.isDefault,con.getName())
 							}
 						}
 					}
-					label(class:"col-sm-2 control-label", "All:")
+					label(class:"col-sm-2 control-label", "All (cast with default property):")
 					div( class:"col-sm-10"){
 						input( type:"checkbox",class:"form-control", id:"all")
 					}
 				}
-				
+
 				div( class:"form-group"){
 					label(class:"col-sm-2 control-label", "Url:")
 					div( class:"col-sm-10"){

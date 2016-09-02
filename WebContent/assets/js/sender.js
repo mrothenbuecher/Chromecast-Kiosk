@@ -19,7 +19,8 @@ $(document).ready(function() {
 			if (all) {
 				$('#receiver-ip').find('option').each(function() {
 					$this = $(this);
-					launch($this.val(), $this.text());
+					if($this.data('default') == "true")
+						launch($this.val(), $this.text());
 				});
 			} else {
 				var $option = $('#receiver-ip').find('option:selected');
