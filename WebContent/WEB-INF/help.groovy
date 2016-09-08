@@ -4,6 +4,7 @@ html.div {
 			div( class:"page-header"){ h1('help') }
 		}
 		div(class:"col-xs-12"){
+			//TODO write help
 		}
 	}
 }

@@ -30,9 +30,16 @@ html.html('lang':"de"){
 						li {
 							a(href:"#start", 'start cast', id:"senderbutton")
 						}
+						
+						li {
+							a(href:"#cron", 'cronjobs', id:"cronbutton")
+						}
+						
+						/*
 						li {
 							a(href:"#help", 'help', id:"helpbutton")
 						}
+						*/
 					}
 				}
 			}
@@ -40,7 +47,8 @@ html.html('lang':"de"){
 
 		include('/WEB-INF/main.groovy')
 		include('/WEB-INF/sender.groovy')
-		include('/WEB-INF/help.groovy')
+		include('/WEB-INF/cron.groovy')
+		//include('/WEB-INF/help.groovy')
 
 		script(src:"assets/js/bootstrap.min.js")
 		script(src:"assets/js/spin.min.js")

@@ -105,7 +105,7 @@ public class SettingsREST {
 				}
 			}
 		} else {
-			obj.put("error", "ip and name must be defined.");
+			obj.put("error", "ip must be defined.");
 		}
 		return Response.ok().entity(obj.toString()).build();
 	}

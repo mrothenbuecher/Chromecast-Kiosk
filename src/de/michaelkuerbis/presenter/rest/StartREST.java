@@ -13,11 +13,10 @@ import su.litvak.chromecast.api.v2.Application;
 import su.litvak.chromecast.api.v2.ChromeCast;
 import su.litvak.chromecast.api.v2.Status;
 import de.michaelkuerbis.presenter.utils.KioskRequest;
+import de.michaelkuerbis.presenter.utils.Settings;
 
 @Path("/start")
 public class StartREST {
-
-	private final String appId = "10B2AF08";
 
 	@POST
 	@Path("/{ip}")
@@ -29,8 +28,8 @@ public class StartREST {
 			chromecast.connect();
 			if (chromecast.isConnected()) {
 				Status status = chromecast.getStatus();
-				if (chromecast.isAppAvailable(appId)) {
-					Application app = chromecast.launchApp(appId);
+				if (chromecast.isAppAvailable(Settings.appId)) {
+					Application app = chromecast.launchApp(Settings.appId);
 					chromecast.send("urn:x-cast:de.michaelkuerbis.kiosk",
 							new KioskRequest(url, reload));
 					return Response.ok().build();

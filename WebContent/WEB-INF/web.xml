@@ -39,6 +39,11 @@
 		<load-on-startup>3</load-on-startup>
 	</servlet>
 	<servlet>
+		<servlet-name>CronServlet</servlet-name>
+		<servlet-class>de.michaelkuerbis.presenter.servlets.CronServlet</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	<servlet>
 		<servlet-name>DiscoveryServlet</servlet-name>
 		<servlet-class>de.michaelkuerbis.presenter.servlets.ChromeCastDiscoverServlet</servlet-class>
 		<load-on-startup>4</load-on-startup>

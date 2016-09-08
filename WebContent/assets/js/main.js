@@ -305,8 +305,10 @@ $(document).ready(function() {
 						$(this).parent().addClass("active");
 						$('#main').slideUp();
 						$('#help').slideUp();
+						$('#cron').slideUp();
 						$('#sender').slideDown();
 						$('#mainbutton').parent().removeClass("active");
+						$('#cronbutton').parent().removeClass("active");
 						$('#helpbutton').parent().removeClass("active");
 					});
 
@@ -315,8 +317,10 @@ $(document).ready(function() {
 						$(this).parent().addClass("active");
 						$('#sender').slideUp();
 						$('#help').slideUp();
+						$('#cron').slideUp();
 						$('#main').slideDown();
 						$('#senderbutton').parent().removeClass("active");
+						$('#cronbutton').parent().removeClass("active");
 						$('#helpbutton').parent().removeClass("active");
 					});
 
@@ -325,8 +329,22 @@ $(document).ready(function() {
 						$(this).parent().addClass("active");
 						$('#main').slideUp();
 						$('#sender').slideUp();
+						$('#cron').slideUp();
 						$('#help').slideDown();
 						$('#senderbutton').parent().removeClass("active");
+						$('#cronbutton').parent().removeClass("active");
+						$('#mainbutton').parent().removeClass("active");
+					});
+					
+					$('#cronbutton').click(function(ev) {
+						ev.preventDefault();
+						$(this).parent().addClass("active");
+						$('#help').slideUp();
+						$('#sender').slideUp();
+						$('#main').slideUp();
+						$('#cron').slideDown();
+						$('#senderbutton').parent().removeClass("active");
+						$('#helpbutton').parent().removeClass("active");
 						$('#mainbutton').parent().removeClass("active");
 					});
 

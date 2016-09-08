@@ -1,7 +1,7 @@
 function launch(ip, name) {
 	$.post("rest/start/" + ip, {
-		url : $('#url').val(),
-		reload : $('#refresh').val(),
+		url : $("#sender").find('#url').val(),
+		reload : $("#sender").find('#refresh').val(),
 	}).done(function() {
 		toastr['info']("Started on " + name + " successfully");
 	}).fail(function() {
@@ -12,18 +12,18 @@ function launch(ip, name) {
 $(document).ready(function() {
 
 	$('#launch').click(function() {
-		if (!$('#url').val()) {
+		if (!$("#sender").find('#url').val()) {
 			toastr['warning']("Please insert url");
 		} else {
 			var all = $('#all').prop("checked");
 			if (all) {
-				$('#receiver-ip').find('option').each(function() {
+				$("#sender").find('#receiver-ip').find('option').each(function() {
 					$this = $(this);
 					if($this.data('default') == "true")
 						launch($this.val(), $this.text());
 				});
 			} else {
-				var $option = $('#receiver-ip').find('option:selected');
+				var $option = $("#sender").find('#receiver-ip').find('option:selected');
 				if ($option) {
 					launch($option.val(), $option.text());
 				} else {
