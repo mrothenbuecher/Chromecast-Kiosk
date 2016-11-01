@@ -10,16 +10,15 @@ function launch(ip, name) {
 }
 
 $(document).ready(function() {
-
 	$('#launch').click(function() {
 		if (!$("#sender").find('#url').val()) {
 			toastr['warning']("Please insert url");
 		} else {
-			var all = $('#all').prop("checked");
+			var all = $("#sender").find('#all').prop("checked");
 			if (all) {
 				$("#sender").find('#receiver-ip').find('option').each(function() {
 					$this = $(this);
-					if($this.data('default') == "true")
+					if($this.data('default') == true)
 						launch($this.val(), $this.text());
 				});
 			} else {

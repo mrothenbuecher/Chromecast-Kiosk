@@ -1,3 +1,5 @@
 *.class
 /build/
 /target/
+
+target/m2e-wtp/web-resources/META-INF/maven/presenter/presenter/pom.properties
