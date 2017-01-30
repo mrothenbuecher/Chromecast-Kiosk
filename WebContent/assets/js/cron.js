@@ -17,7 +17,7 @@ $(document).ready(function() {
 						name : $('#cron').find('#name').val()
 					}).done(function() {
 						toastr['info']("added cronjob for " + $option.text() + " successfully");
-					}).fail(function() {
+					}).fail(function(xhr, status, error) {
 						toastr['error']("error on " + $option.text());
 					});
 				} else {
