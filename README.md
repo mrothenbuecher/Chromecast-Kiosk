@@ -1,7 +1,7 @@
 # Chromecast-Kiosk
 A system to create a digital signage system with google chromecasts. 
 
-![screenshot](https://raw.githubusercontent.com/mkuerbis/Chromecast-Kiosk/master/img/overview-screenshot.png "screenshot")
+![screenshot](https://raw.githubusercontent.com/mrothenbuecher/Chromecast-Kiosk/master/img/overview-screenshot.png "screenshot")
 
 ### release state
 beta
@@ -18,6 +18,7 @@ beta
 * set the website which shall be displayed based on [chromecast-dashboard](https://github.com/boombatower/chromecast-dashboard)
 * you don't need a system which runs google chrome the whole time to keep the cast extension running
 * you can manage multiple chromecast in one browser
+* added cronjob so you could plan what your cast should do
 
 ## Installation
 All you need todo is deploy the presenter.war in the webapps directory of a Tomcat 8.0.
