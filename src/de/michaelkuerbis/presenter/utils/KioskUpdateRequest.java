@@ -4,7 +4,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 import su.litvak.chromecast.api.v2.Request;
 
-public class KioskRequest implements Request {
+public class KioskUpdateRequest implements Request {
 
 	@JsonProperty
     final String url;
@@ -15,7 +15,7 @@ public class KioskRequest implements Request {
 	
     private Long requestId;
     
-    public KioskRequest(String url, int refresh){
+    public KioskUpdateRequest(String url, int refresh){
     	this.url = url;
     	this.refresh = refresh;
     	this.type = "load";

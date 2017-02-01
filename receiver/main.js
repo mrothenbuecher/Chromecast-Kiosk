@@ -24,10 +24,14 @@ window.onload = function() {
     window.castReceiverManager.getCastMessageBus(
         'urn:x-cast:de.michaelkuerbis.kiosk', cast.receiver.CastMessageBus.MessageType.JSON);
 
+  var current = {};
+  
   window.messageBus.onMessage = function(event) {
-    console.log('Message [' + event.senderId + ']: ' + event.data);
+    console.log('Message [' + event.senderId + ']: ', event.data);
 
     if (event.data['type'] == 'load') {
+    	current.url = event.data['url'];
+    	current.refresh = event.data['refresh'];
       $('#dashboard').attr('src', event.data['url']);
       if (event.data['refresh'] > 0) {
         $('#dashboard').attr('data-refresh', event.data['refresh'] * 1000);
@@ -36,6 +40,13 @@ window.onload = function() {
       else {
         $('#dashboard').attr('data-refresh', 0);
       }
+    }
+    // return Information
+    if(event.data.status){
+    	current.requestId = event.data.requestId;
+    	console.log("getstatus",'Message [' + event.senderId + ']: ', event.data);
+    	console.log("response", current);
+    	window.messageBus.send(event.senderId, current);
     }
   }
 

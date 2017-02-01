@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import su.litvak.chromecast.api.v2.Application;
 import su.litvak.chromecast.api.v2.ChromeCast;
 import su.litvak.chromecast.api.v2.Status;
-import de.michaelkuerbis.presenter.utils.KioskRequest;
+import de.michaelkuerbis.presenter.utils.KioskUpdateRequest;
 import de.michaelkuerbis.presenter.utils.Settings;
 
 @Path("/start")
@@ -31,7 +31,7 @@ public class StartREST {
 				if (chromecast.isAppAvailable(Settings.appId)) {
 					Application app = chromecast.launchApp(Settings.appId);
 					chromecast.send("urn:x-cast:de.michaelkuerbis.kiosk",
-							new KioskRequest(url, reload));
+							new KioskUpdateRequest(url, reload));
 					return Response.ok().build();
 				}
 				else return Response

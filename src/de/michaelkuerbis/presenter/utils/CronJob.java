@@ -60,7 +60,7 @@ public class CronJob implements Runnable {
 				if (chromecast.isAppAvailable(Settings.appId)) {
 					Application app = chromecast.launchApp(Settings.appId);
 					chromecast.send("urn:x-cast:de.michaelkuerbis.kiosk",
-							new KioskRequest(url, reload));
+							new KioskUpdateRequest(url, reload));
 					return;
 				} else
 					throw new Exception("app is not available");

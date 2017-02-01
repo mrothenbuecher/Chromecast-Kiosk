@@ -3,12 +3,17 @@
   padding: 0px;
 }
 
+body  {
+	background-color:white;
+}
+
 .container {
   height: 100%;
   width: 100%;
   margin: 0px;
   padding: 0px;
   overflow: hidden;
+  background-color:white;
 }
 
 .container iframe {
