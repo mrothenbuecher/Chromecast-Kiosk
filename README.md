@@ -14,14 +14,19 @@ beta
 
 ## Benefits
 * see what your casts are doing
-* discover the chromecast in your network
-* set the website which shall be displayed based on [chromecast-dashboard](https://github.com/boombatower/chromecast-dashboard)
+* ~~discover the chromecast in your network~~ currently again under development
+* set the website which shall be displayed on your chromecast based on [chromecast-dashboard](https://github.com/boombatower/chromecast-dashboard)
 * you don't need a system which runs google chrome the whole time to keep the cast extension running
 * you can manage multiple chromecast in one browser
 * added cronjob so you could plan what your cast should do
 
 ## Installation
 All you need todo is deploy the presenter.war in the webapps directory of a Tomcat 8.0.
+
+## Upgrading
+1. Copy the `*.json` files from WEB-INF/config as backup.
+2. use the Tomcat manager to undeploy the current webapp and deploy the new one
+3. copy the json files back to WEB-INF/config
 
 ## Start casting
 1. add a ChromeCast, by IP and Name
