@@ -41,7 +41,7 @@ $(document).ready(function() {
 				row += elem.name;
 				row+="</div>";
 				row +='<div class="col-xs-4">';
-				row += elem.url;
+				row += '<a href="'+elem.url+'+" target="_blank">'+elem.url+'</a>';
 				row+="</div>";
 				row +='<div class="col-xs-2">';
 				row += elem.desc+" ("+elem.pattern+")";
