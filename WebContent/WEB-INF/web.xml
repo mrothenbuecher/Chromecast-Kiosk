@@ -16,13 +16,11 @@
 		<servlet-name>Groovy</servlet-name>
 		<url-pattern>*.groovy</url-pattern>
 	</servlet-mapping>
- <servlet>
+	<servlet>
 		<servlet-name>RESTServlet</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-		<!-- <init-param>
-			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>es_searchbar.rest.filter</param-value>
-		</init-param> -->
+		<!-- <init-param> <param-name>jersey.config.server.provider.packages</param-name> 
+			<param-value>es_searchbar.rest.filter</param-value> </init-param> -->
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
 			<param-value>de.michaelkuerbis.presenter.rest.PresenterApplication</param-value>
