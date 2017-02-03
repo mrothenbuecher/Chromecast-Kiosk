@@ -5,7 +5,7 @@ html.div {
 	div( class:"container", id:"main"){
 		div(class:"col-xs-12"){
 			div( class:"page-header"){
-				h1('Overview') {
+				h1('data-i18n':"overview",'Overview') {
 					//TODO Modal dialog
 					button(class:"btn btn-default", 'data-toggle':"modal", 'data-target':"#addchromecast", "+")
 					button(class:"btn btn-default", id:"refreshall", style:"height: 34px;"){

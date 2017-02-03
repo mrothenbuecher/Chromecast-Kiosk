@@ -1,10 +1,9 @@
 
-html.html('lang':"de"){
+html.html('lang':"en"){
 	head {
 		meta('http-equiv':"content-type", content:"text/html; charset=UTF-8")
 		meta(charset:"UTF-8")
 		title('Kiosk System')
-		meta( name:"generator", content:"Bootply")
 		meta( name:"viewport", content:"width=device-width, initial-scale=1, maximum-scale=1")
 		link( href:"assets/css/bootstrap.min.css", rel:"stylesheet")
 		link( href:"assets/css/toastr.min.css", rel:"stylesheet")
@@ -25,21 +24,34 @@ html.html('lang':"de"){
 				div( class:"collapse navbar-collapse"){
 					ul( class:"nav navbar-nav"){
 						li(class:"active"){
-							a(href:"#overview", 'Overview', id:"mainbutton")
+							a(href:"#overview",'data-i18n':"overview", 'Overview', id:"mainbutton")
 						}
 						li {
 							a(href:"#start", 'start cast', id:"senderbutton")
 						}
-						
+
 						li {
 							a(href:"#cron", 'cronjobs', id:"cronbutton")
 						}
-						
-						/*
-						li {
-							a(href:"#help", 'help', id:"helpbutton")
+					}
+					ul(class:"nav navbar-nav navbar-right"){
+
+						li( class:"dropdown"){
+							a( href:"#", class:"dropdown-toggle", 'data-toggle':"dropdown", role:"button", 'aria-haspopup':"true", 'aria-expanded':"false"){
+								div(class:"pull-left", 'data-i18n':"lang", 'lang')
+								span( class:"caret")
+							}
+							ul(class:"dropdown-menu"){
+								li(class:"radio"){
+									label("de")
+									input(type:"radio", name:"lang",value:'de')
+								}
+								li(class:"radio"){
+									label("en")
+									input(type:"radio", name:"lang",value:'en')
+								}
+							}
 						}
-						*/
 					}
 				}
 			}
@@ -53,6 +65,22 @@ html.html('lang':"de"){
 		script(src:"assets/js/bootstrap.min.js")
 		script(src:"assets/js/spin.min.js")
 		script(src:"assets/js/toastr.min.js")
+		
+		// history && url
+		script(src:"assets/js/jquery.history.js")
+		script(src:"assets/js/url.min.js")
+
+		// i18n support
+		script(src:"assets/js/jquery.i18n.js")
+		script(src:"assets/js/jquery.i18n.messagestore.js")
+		script(src:"assets/js/jquery.i18n.fallbacks.js")
+		script(src:"assets/js/jquery.i18n.language.js")
+		script(src:"assets/js/jquery.i18n.parser.js")
+		script(src:"assets/js/jquery.i18n.emitter.js")
+		script(src:"assets/js/jquery.i18n.emitter.bidi.js")
+
+		// custom scripts
 		script(src:"assets/js/main.js")
+		script(src:"assets/js/lang.js")
 	}
 }
