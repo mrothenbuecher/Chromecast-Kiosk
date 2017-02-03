@@ -13,6 +13,7 @@ public class KioskStatusResponse implements Response {
     @JsonProperty("refresh")
     int refresh;
 	
+    @JsonProperty("requestId")
     Long requestId;
 	
 	public String getUrl(){

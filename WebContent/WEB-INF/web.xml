@@ -3,7 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
-	<display-name>presenter</display-name>
+	<display-name>kiosk</display-name>
 	<welcome-file-list>
 		<welcome-file>index.groovy</welcome-file>
 	</welcome-file-list>

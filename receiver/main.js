@@ -27,8 +27,6 @@ window.onload = function() {
   var current = {};
   
   window.messageBus.onMessage = function(event) {
-    console.log('Message [' + event.senderId + ']: ', event.data);
-
     if (event.data['type'] == 'load') {
     	current.url = event.data['url'];
     	current.refresh = event.data['refresh'];
@@ -44,8 +42,8 @@ window.onload = function() {
     // return Information
     if(event.data.status){
     	current.requestId = event.data.requestId;
-    	console.log("getstatus",'Message [' + event.senderId + ']: ', event.data);
-    	console.log("response", current);
+    	current.url = current.url ? current.url:"";
+    	current.refresh = current.refresh ? current.refresh:0;
     	window.messageBus.send(event.senderId, current);
     }
   }

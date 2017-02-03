@@ -5,17 +5,17 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import su.litvak.chromecast.api.v2.Request;
 
 public class KioskStatusRequest implements Request {
-
+	
 	@JsonProperty
-    final boolean status;
+    boolean status;
 	
     private Long requestId;
     
     public KioskStatusRequest(){
     	status = true;
     }
-    
-    @Override
+
+	@Override
     public Long getRequestId() {
         return requestId;
     }

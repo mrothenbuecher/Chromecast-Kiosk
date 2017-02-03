@@ -32,15 +32,19 @@ public class StartREST {
 					Application app = chromecast.launchApp(Settings.appId);
 					chromecast.send("urn:x-cast:de.michaelkuerbis.kiosk",
 							new KioskUpdateRequest(url, reload));
+					chromecast.disconnect();
 					return Response.ok().build();
 				}
-				else return Response
-						.status(Response.Status.BAD_REQUEST)
+				else {
+					chromecast.disconnect();
+					return Response
+						.status(Response.Status.INTERNAL_SERVER_ERROR)
 						.entity("app is not available")
 						.build();
+				}
 			} else {
 				return Response
-						.status(Response.Status.BAD_REQUEST)
+						.status(Response.Status.INTERNAL_SERVER_ERROR)
 						.entity("chromecast did not react / ip of chromecast may wrong")
 						.build();
 			}

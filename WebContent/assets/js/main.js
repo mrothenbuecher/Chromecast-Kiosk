@@ -72,6 +72,9 @@ function requestStatus(container) {
 			if (obj['application'] === "Backdrop")
 				application.addClass("alert alert-warning");
 			application.html(obj['application']);
+			if(obj['application'] == "chromecast-kiosk-web" && obj['application']){
+				application.html('<a href="'+obj['url']+'" target="_blank">'+obj['application']+'</a>');
+			}
 		} else {
 			status.addClass("alert alert-danger");
 			application.addClass("alert alert-danger");
