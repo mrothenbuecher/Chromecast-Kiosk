@@ -41,16 +41,17 @@ html.html('lang':"en"){
 								div(class:"pull-left", 'data-i18n':"index_lang", 'lang')
 								span( class:"caret")
 							}
-							//new File(getServletContext().getResource("/js/file.js").getFile());
+							File langs = new File(request.getServletContext().getRealPath("/assets/lang"));
 							ul(class:"dropdown-menu"){
 								//TODO based on lang files
-								li(class:"radio"){
-									label("de")
-									input(type:"radio", name:"lang",value:'de')
-								}
-								li(class:"radio"){
-									label("en")
-									input(type:"radio", name:"lang",value:'en')
+								for(File f: langs.listFiles()){
+									if(f.isFile() && f.getName().toLowerCase().matches(".*\\.json")){
+										String lang = f.getName().toLowerCase().replace(".json","");
+										li(class:"radio"){
+											label(lang)
+											input(type:"radio", name:"lang",value:lang)
+										}
+									}
 								}
 							}
 						}
