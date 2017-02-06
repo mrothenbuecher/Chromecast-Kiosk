@@ -15,11 +15,14 @@
             set_locale_to(url('?locale'));
           });
         console.log('lang download done!');
-        init();
+        init('body');
     });
 
-    function init() {
-        $('body').i18n();
+    function init(selector) {
+        $(selector).i18n();
+        $(selector).find("[data-i18n-placeholder]").each(function(){
+        	$(this).attr('placeholder', $.i18n($(this).data('i18n-placeholder')));
+        });
         console.log('lang init done!');
     }
 
@@ -28,7 +31,7 @@
             $this = $(this);
             console.log("change lang to: "+$this.val());
             History.pushState(null, null, "?locale=" + $this.val());
-            init();
+            init('body');
         });
     });
 })();

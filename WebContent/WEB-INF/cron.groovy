@@ -4,20 +4,20 @@ import de.michaelkuerbis.presenter.utils.CastConnection;
 html.div {
 	div( class:"container", id:"cron", style:"display:none;"){
 		div(class:"col-xs-12"){
-			div( class:"page-header"){ h1('add cronjobs') }
+			div( class:"page-header"){ h1('data-i18n':"cron_title",'add cronjobs') }
 		}
 		div(class:"col-xs-12"){
 			div(class:"form-horizontal"){
 
 				div( class:"form-group"){
-					label(class:"col-sm-2 control-label", "Description:")
+					label(class:"col-sm-2 control-label",'data-i18n':"cron_desc", "Description:")
 					div( class:"col-sm-10"){
-						input( type:"text",class:"form-control", id:"name", placeholder:"description")
+						input( type:"text",class:"form-control", id:"name",'data-i18n-placeholder':"cron_desc_placeholder", placeholder:"description")
 					}
 				}
 
 				div( class:"form-group"){
-					label(class:"col-sm-2 control-label", "Receiver:")
+					label(class:"col-sm-2 control-label",'data-i18n':"cron_receiver", "Receiver:")
 					div( class:"col-sm-10"){
 						select(id:"receiver-ip", class:"form-control"){
 							for(CastConnection con: SettingsServlet.getConnections()){
@@ -28,41 +28,38 @@ html.div {
 				}
 
 				div( class:"form-group"){
-					label(class:"col-sm-2 control-label", "Execution pattern:")
+					label(class:"col-sm-2 control-label",'data-i18n':"cron_pattern", "Execution pattern:")
 					div( class:"col-sm-10"){
-						input( type:"text",class:"form-control", id:"pattern", placeholder:"* * * * *")
+						input( type:"text",class:"form-control", id:"pattern",'data-i18n-placeholder':"cron_pattern_placeholder", placeholder:"* * * * *")
 					}
 				}
 
 				div( class:"form-group"){
-					label(class:"col-sm-2 control-label", "Url:")
+					label(class:"col-sm-2 control-label",'data-i18n':"cron_url", "Url:")
 					div( class:"col-sm-10"){
-						input( type:"text",class:"form-control", id:"url", placeholder:"http://www....")
+						input( type:"text",class:"form-control", id:"url",'data-i18n-placeholder':"cron_url_placeholder", placeholder:"http://www....")
 					}
 				}
 				div( class:"form-group"){
 					div( class:"col-sm-offset-2 col-sm-10"){
-						button( id:"add", class:"btn btn-default","add")
+						button( id:"add", class:"btn btn-default",'data-i18n':"cron_add","add")
 					}
 				}
 			}
 			div(class:"form-horizontal"){
 				div( class:"form-group"){
-					label(class:"col-sm-2 control-label", "Reload page after sec.")
+					label(class:"col-sm-2 control-label",'data-i18n':"cron_reload", "Reload page after sec.")
 					div( class:"col-sm-10"){
 						input( type:"number",class:"form-control", id:"refresh", min:"0", value:"0")
 					}
-					label(class:"col-sm-offset-2 col-sm-10 pull-left", "0 means no reload at all")
+					label(class:"col-sm-offset-2 col-sm-10 pull-left",'data-i18n':"cron_zero_reload", "0 means no reload at all")
 				}
 			}
-			button( id:"kill", style:"display: none",disabled:"disabled","Stop casting")
-			p( id:"post-note", style:"display: none",
-			"""If the page does not load please be sure HTTP header X-Frame-Options
-			  allows the page to be loaded inside a frame not on the same origin.""")
 		}
 		div(class:"col-xs-12"){
 			div( class:"page-header"){
-				h1('current cronjobs'){
+				h1(class:"pull-left",'data-i18n':"cron_current_jobs",'current cronjobs')
+				div(style:"margin-left: 10px;padding-top: 20px;"){
 					button(class:"btn btn-default", id:"refreshjobs", style:"height: 34px;"){
 						span(class:"glyphicon glyphicon-refresh", " ")
 					}

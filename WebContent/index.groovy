@@ -24,24 +24,26 @@ html.html('lang':"en"){
 				div( class:"collapse navbar-collapse"){
 					ul( class:"nav navbar-nav"){
 						li(class:"active"){
-							a(href:"#overview",'data-i18n':"overview", 'Overview', id:"mainbutton")
+							a(href:"#overview",'data-i18n':"index_overview", 'Overview', id:"mainbutton")
 						}
 						li {
-							a(href:"#start", 'start cast', id:"senderbutton")
+							a(href:"#start",'data-i18n':"index_start_cast", 'start cast', id:"senderbutton")
 						}
 
 						li {
-							a(href:"#cron", 'cronjobs', id:"cronbutton")
+							a(href:"#cron",'data-i18n':"index_cronjobs", 'cronjobs', id:"cronbutton")
 						}
 					}
 					ul(class:"nav navbar-nav navbar-right"){
 
 						li( class:"dropdown"){
 							a( href:"#", class:"dropdown-toggle", 'data-toggle':"dropdown", role:"button", 'aria-haspopup':"true", 'aria-expanded':"false"){
-								div(class:"pull-left", 'data-i18n':"lang", 'lang')
+								div(class:"pull-left", 'data-i18n':"index_lang", 'lang')
 								span( class:"caret")
 							}
+							//new File(getServletContext().getResource("/js/file.js").getFile());
 							ul(class:"dropdown-menu"){
+								//TODO based on lang files
 								li(class:"radio"){
 									label("de")
 									input(type:"radio", name:"lang",value:'de')

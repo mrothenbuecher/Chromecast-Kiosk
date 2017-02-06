@@ -226,82 +226,43 @@
             requestEach();
         });
 
-        $('#searchcasts')
-            .click(
-                function(ev) {
-                    // ev.preventDefault();
+        $('#searchcasts').click(function(ev) {
+            // ev.preventDefault();
 
-                    $
-                        .ajax({
-                            type: "GET",
-                            url: "rest/discovered/get",
-                            beforeSend: function() {
-                                $(
-                                        '#discoverchromecast')
-                                    .find(
-                                        '.modal-body')
-                                    .html(
-                                        "");
-                            }
-                        })
-                        .done(
-                            function(data,
-                                textStatus,
-                                jqXHR) {
-                                var obj = JSON
-                                    .parse(data);
-                                $
-                                    .each(
-                                        obj,
-                                        function(
-                                            i,
-                                            elem) {
-                                            console
-                                                .log(elem);
-                                            var row = '<div class="row"><div class="col-xs-12">';
-                                            row += '<button class="btn btn-default discover-add" data-name="' +
-                                                elem.name +
-                                                '" data-ip="' +
-                                                elem.ip +
-                                                '">add ' +
-                                                elem.name +
-                                                " " +
-                                                elem.ip +
-                                                '</button>';
-                                            row += "</div></div>"
-                                            $(
-                                                    '#discoverchromecast')
-                                                .find(
-                                                    '.modal-body')
-                                                .append(
-                                                    row);
-                                        });
-                                $('.discover-add')
-                                    .click(
-                                        function(
-                                            ev) {
-                                            ev
-                                                .preventDefault();
-                                            addCast(
-                                                $(
-                                                    this)
-                                                .data(
-                                                    "ip"),
-                                                $(
-                                                    this)
-                                                .data(
-                                                    "name"));
-                                        });
-                            })
-                        .fail(
-                            function(jqXHR,
-                                textStatus,
-                                errorThrown) {
-                                // TODO error
-                                console
-                                    .log("error");
-                            });
+            $.ajax({
+                    type: "GET",
+                    url: "rest/discovered/get",
+                    beforeSend: function() {
+                        $('#discoverchromecast').find('.modal-body').html("");
+                    }
+                }).done(function(data, textStatus, jqXHR) {
+                    var obj = JSON.parse(data);
+                    $.each(obj, function(i, elem) {
+                        console.log(elem);
+                        var row = '<div class="row"><div class="col-xs-12">';
+                        row += '<button class="btn btn-default discover-add" data-name="' +
+                            elem.name +
+                            '" data-ip="' +
+                            elem.ip +
+                            '">'+$.i18n( 'main_discover_add' )+' ' +
+                            elem.name +
+                            " " +
+                            elem.ip +
+                            '</button>';
+                        row += "</div></div>"
+                        $('#discoverchromecast').find('.modal-body').append(row);
+                    });
+                    $('.discover-add').click(function(ev) {
+                        ev.preventDefault();
+                        addCast($(this).data("ip"),
+                            $(this).data("name"));
+                    });
+                })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    // TODO error
+                    consolelog("error");
                 });
+        });
 
         $('#senderbutton').click(function(ev) {
             ev.preventDefault();
