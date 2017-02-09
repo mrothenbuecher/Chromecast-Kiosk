@@ -27,7 +27,7 @@ html.div {
 			}
 		}else{
 			for(CastConnection con: SettingsServlet.getConnections()){
-				div(class:"col-xs-3 chromecastpanel", 'data-ip': con.getIp()){
+				div(class:"col-xs-12 col-sm-6 col-sm-4 col-lg-3 chromecastpanel", 'data-ip': con.getIp()){
 					div(class:"panel panel-default"){
 						div(class:"panel-heading"){
 							h3(class:"panel-title", con.getName()){
