@@ -310,6 +310,7 @@
             $('#senderbutton').parent().removeClass("active");
             $('#helpbutton').parent().removeClass("active");
             $('#mainbutton').parent().removeClass("active");
+            $('#refreshjobs').trigger('click');
         });
 
     });
