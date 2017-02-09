@@ -49,6 +49,7 @@
                     row += "</div>";
                     row += '<div class="col-xs-2">';
                     row += '<button data-target="' + elem.target + '" data-name="' + elem.name + '" class="btn btn-default del-cron">delete</button>';
+                    row+='</div></div><div class="col-xs-12"><hr/></div>';
                     $cjobs.append(row);
                 });
 
