@@ -6,27 +6,31 @@ A system to create a digital signage system with google chromecasts.
 ### release state
 beta
 
-## Recommendations
+## requirements
+* fixed ip address for each chromecast 
+
+## recommendations
 * Use ethernet instead of wlan, see [DIY Ethernet Adapter](https://productforums.google.com/forum/#!topic/chromecast/xo_NDh5CZA8) or the offical adapter.
 * Set a static ip address to the chromecast.
 * Use subneting to protect your casts from unwanted access.
 
-## Benefits
+## benefits
 * see what your casts are doing
 * discover the chromecast in your network
 * set the website which shall be displayed on your chromecast based on [chromecast-dashboard](https://github.com/boombatower/chromecast-dashboard)
 * you can manage multiple chromecast in one browser
-* added cronjob so you could plan what your casts should do
+* cronjobs so you could plan what your casts should do
+* multi lang support
 
-## Installation
-All you need todo is deploy the presenter.war in the webapps directory of a Tomcat 8.0.
+## installation
+All you need todo is deploy the *.war - File in the webapps directory of a Tomcat 8.0.
 
-## Upgrading
+## upgrading
 1. Copy the `*.json` files from WEB-INF/config as backup.
 2. use the Tomcat manager to undeploy the current webapp and deploy the new one
 3. copy the json files back to WEB-INF/config
 
-## Start casting
+## start casting
 1. add a ChromeCast, by IP and Name
 2. set target chromecast, the url and the refresh rate of the website you want to be displayed (for internal sides use the IP of the server not his name)
 3. see if they are still alive an playing
