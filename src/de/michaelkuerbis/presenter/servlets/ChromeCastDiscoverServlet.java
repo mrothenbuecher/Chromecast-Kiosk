@@ -1,7 +1,13 @@
 package de.michaelkuerbis.presenter.servlets;
 
+import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+
+import su.litvak.chromecast.api.v2.ChromeCast;
+import su.litvak.chromecast.api.v2.ChromeCasts;
+import su.litvak.chromecast.api.v2.ChromeCastsListener;
 
 public class ChromeCastDiscoverServlet extends HttpServlet {
 
@@ -12,7 +18,7 @@ public class ChromeCastDiscoverServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException{
-		/*
+		
 		try {
 			
 			ChromeCasts.startDiscovery();
@@ -37,7 +43,7 @@ public class ChromeCastDiscoverServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		*/
+		
 	}
 	
 }

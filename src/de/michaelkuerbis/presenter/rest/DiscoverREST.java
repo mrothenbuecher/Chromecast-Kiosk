@@ -1,5 +1,7 @@
 package de.michaelkuerbis.presenter.rest;
 
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -16,7 +18,7 @@ public class DiscoverREST {
 	@GET
 	@Path("/get")
 	public Response start() throws InterruptedException {
-		ChromeCasts casts = ChromeCasts.get();
+		List<ChromeCast> casts = ChromeCasts.get();
 		JSONArray array = new JSONArray();
 		for (ChromeCast cast : casts) {
 			JSONObject obj = new JSONObject();

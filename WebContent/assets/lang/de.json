@@ -11,7 +11,7 @@
     "index_cronjobs":"Cronjobs",
     "index_lang":"Sprache",
     "main_title":"Übersicht",
-    "main_no_casts": "Sie haben noch keine Casts definiert.",
+    "main_no_casts": "Sie haben noch keine Casts definiert. ",
     "main_no_casts_add_one": "Einen hinzufügen.",
     "main_panel_status":"Status:",
     "main_panel_app":"App:",
