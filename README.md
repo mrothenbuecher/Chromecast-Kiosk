@@ -10,7 +10,6 @@ beta
 * Use ethernet instead of wlan, see [DIY Ethernet Adapter](https://productforums.google.com/forum/#!topic/chromecast/xo_NDh5CZA8) or the offical adapter.
 * Set a static ip address to the chromecast.
 * Use subneting to protect your casts from unwanted access.
-* ~~use Google Chrome and the Google Cast (beta) extension~~
 
 ## Benefits
 * see what your casts are doing
