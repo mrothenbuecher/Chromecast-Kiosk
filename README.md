@@ -14,7 +14,7 @@ beta
 
 ## Benefits
 * see what your casts are doing
-* ~~discover the chromecast in your network~~ currently again under development
+* discover the chromecast in your network
 * set the website which shall be displayed on your chromecast based on [chromecast-dashboard](https://github.com/boombatower/chromecast-dashboard)
 * you can manage multiple chromecast in one browser
 * added cronjob so you could plan what your casts should do
