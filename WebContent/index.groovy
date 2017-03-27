@@ -29,9 +29,11 @@ html.html('lang':"en"){
 						li {
 							a(href:"#start",'data-i18n':"index_start_cast", 'start cast', id:"senderbutton")
 						}
-
 						li {
 							a(href:"#cron",'data-i18n':"index_cronjobs", 'cronjobs', id:"cronbutton")
+						}
+						li {
+							a(href:"#media",'data-i18n':"index_media", 'media', id:"mediabutton")
 						}
 					}
 					ul(class:"nav navbar-nav navbar-right"){
@@ -63,6 +65,7 @@ html.html('lang':"en"){
 		include('/WEB-INF/main.groovy')
 		include('/WEB-INF/sender.groovy')
 		include('/WEB-INF/cron.groovy')
+		include('/WEB-INF/media.groovy')
 		//include('/WEB-INF/help.groovy')
 
 		script(src:"assets/js/bootstrap.min.js")

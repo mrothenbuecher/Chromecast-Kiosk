@@ -42,6 +42,15 @@
 		<load-on-startup>3</load-on-startup>
 	</servlet>
 	<servlet>
+		<servlet-name>MediaServlet</servlet-name>
+		<servlet-class>de.michaelkuerbis.presenter.servlets.MediaServlet</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MediaServlet</servlet-name>
+		<url-pattern>/media</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>DiscoveryServlet</servlet-name>
 		<servlet-class>de.michaelkuerbis.presenter.servlets.ChromeCastDiscoverServlet</servlet-class>
 		<load-on-startup>4</load-on-startup>

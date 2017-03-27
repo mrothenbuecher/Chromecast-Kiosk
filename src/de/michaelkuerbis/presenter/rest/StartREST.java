@@ -11,6 +11,7 @@ import javax.ws.rs.core.Response;
 
 import su.litvak.chromecast.api.v2.Application;
 import su.litvak.chromecast.api.v2.ChromeCast;
+import su.litvak.chromecast.api.v2.MediaStatus;
 import su.litvak.chromecast.api.v2.Status;
 import de.michaelkuerbis.presenter.utils.KioskUpdateRequest;
 import de.michaelkuerbis.presenter.utils.Settings;
@@ -20,7 +21,7 @@ public class StartREST {
 
 	@POST
 	@Path("/{ip}")
-	public Response addChromecast(@PathParam("ip") String ip,
+	public Response startCast(@PathParam("ip") String ip,
 			@FormParam("url") String url, @FormParam("reload") int reload) {
 
 		ChromeCast chromecast = new ChromeCast(ip);
@@ -57,4 +58,29 @@ public class StartREST {
 		
 	}
 
+	@POST
+	@Path("/stream/{ip}")
+	public Response startStream(@PathParam("ip") String ip, @FormParam("file") String url) {
+
+		ChromeCast chromecast = new ChromeCast(ip);
+		try {
+			chromecast.connect();
+			if (chromecast.isConnected()) {
+				MediaStatus status = chromecast.load(url);
+				return Response.ok().build();
+			} else {
+				return Response
+						.status(Response.Status.INTERNAL_SERVER_ERROR)
+						.entity("chromecast did not react / ip of chromecast may wrong")
+						.build();
+			}
+		} catch (IOException | GeneralSecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+		}
+
+		
+	}
+	
 }

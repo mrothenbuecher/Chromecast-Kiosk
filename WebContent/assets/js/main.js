@@ -264,16 +264,33 @@
                 });
         });
 
+        $('#mediabutton').click(function(ev) {
+            ev.preventDefault();
+            $(this).parent().addClass("active");
+            $('#main').slideUp();
+            $('#help').slideUp();
+            $('#cron').slideUp();
+            $('#sender').slideUp();
+            $('#media').slideDown();
+            $('#senderbutton').parent().removeClass("active");
+            $('#mainbutton').parent().removeClass("active");
+            $('#cronbutton').parent().removeClass("active");
+            $('#helpbutton').parent().removeClass("active");
+            $('#media-refresh').trigger('click');
+        });
+        
         $('#senderbutton').click(function(ev) {
             ev.preventDefault();
             $(this).parent().addClass("active");
             $('#main').slideUp();
             $('#help').slideUp();
             $('#cron').slideUp();
+            $('#media').slideUp();
             $('#sender').slideDown();
             $('#mainbutton').parent().removeClass("active");
             $('#cronbutton').parent().removeClass("active");
             $('#helpbutton').parent().removeClass("active");
+            $('#mediabutton').parent().removeClass("active");
         });
 
         $('#mainbutton').click(function(ev) {
@@ -282,10 +299,12 @@
             $('#sender').slideUp();
             $('#help').slideUp();
             $('#cron').slideUp();
+            $('#media').slideUp();
             $('#main').slideDown();
             $('#senderbutton').parent().removeClass("active");
             $('#cronbutton').parent().removeClass("active");
             $('#helpbutton').parent().removeClass("active");
+            $('#mediabutton').parent().removeClass("active");
         });
 
         $('#helpbutton').click(function(ev) {
@@ -294,10 +313,12 @@
             $('#main').slideUp();
             $('#sender').slideUp();
             $('#cron').slideUp();
+            $('#media').slideUp();
             $('#help').slideDown();
             $('#senderbutton').parent().removeClass("active");
             $('#cronbutton').parent().removeClass("active");
             $('#mainbutton').parent().removeClass("active");
+            $('#mediabutton').parent().removeClass("active");
         });
 
         $('#cronbutton').click(function(ev) {
@@ -306,10 +327,12 @@
             $('#help').slideUp();
             $('#sender').slideUp();
             $('#main').slideUp();
+            $('#media').slideUp();
             $('#cron').slideDown();
             $('#senderbutton').parent().removeClass("active");
             $('#helpbutton').parent().removeClass("active");
             $('#mainbutton').parent().removeClass("active");
+            $('#mediabutton').parent().removeClass("active");
             $('#refreshjobs').trigger('click');
         });
 

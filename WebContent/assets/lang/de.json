@@ -10,6 +10,7 @@
     "index_start_cast":"starte Casts",
     "index_cronjobs":"Cronjobs",
     "index_lang":"Sprache",
+    "index_media":"Dateien",
     "main_title":"Übersicht",
     "main_no_casts": "Sie haben noch keine Casts definiert. ",
     "main_no_casts_add_one": "Einen hinzufügen.",
@@ -45,6 +46,13 @@
     "cron_add":"hinzufügen",
     "cron_reload":"Seite neuladen nach X sec.",
     "cron_zero_reload":"0 bedeutet kein neuladen",
-    "cron_current_jobs":"Aktuelle Cronjobs"
-    
+    "cron_current_jobs":"Aktuelle Cronjobs",
+    "media_title":"Medien",
+    "media_browse":"Datei auswählen",
+    "media_upload":"hochladen",
+    "media_label":"Datei",
+    "media_refresh":"Liste aktualisieren",
+    "media_delete":"Datei löschen",
+    "media_upload_success":"erfolgreich hochgeladen",
+    "media_delete_success":"erfolgreich gelöscht"
 }

@@ -10,6 +10,7 @@
     "index_start_cast":"start cast",
     "index_cronjobs":"cronjobs",
     "index_lang":"lang",
+    "index_media":"media",
     "main_title":"Overview",
     "main_no_casts": "There are no chromecasts defined.",
     "main_no_casts_add_one": "Add one.",
@@ -45,6 +46,13 @@
     "cron_add":"add",
     "cron_reload":"Reload page after sec.",
     "cron_zero_reload":"0 means no reload at all",
-    "cron_current_jobs":"current cronjobs"
-    
+    "cron_current_jobs":"current cronjobs",
+    "media_title":"media",
+    "media_browse":"Browse File",
+    "media_upload":"upload",
+    "media_label":"Media",
+    "media_refresh":"refresh list",
+    "media_delete":"delete media",
+    "media_upload_success":"upload successfull",
+    "media_delete_success":"delete successfull"
 }
