@@ -17,7 +17,7 @@ body  {
 }
 
 .container iframe {
-  height: calc(100% + 28px);
+  height: 100% !important;
   width: 100% !important;
   border: 0;
   z-index: 100;
