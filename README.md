@@ -35,6 +35,14 @@ All you need todo is deploy the *.war - File in the webapps directory of a Tomca
 2. set target chromecast, the url and the refresh rate of the website you want to be displayed (for internal sides use the IP of the server not his name)
 3. see if they are still alive an playing
 
+## tips for using with google slides
+Example URL `https://docs.google.com/presentation/.../embed?start=true&loop=true&delayms=10000&rm=minimal`
+* start=true - start after loading
+* loop=true - loop the presentation
+* delayms=10000 - wait 10.000 ms between slides
+* rm=minimal - show minimal interface (don't show slidenumber etc.)
+
+
 ## Thanks to
 * [DIY Ethernet Adapter](https://productforums.google.com/forum/#!topic/chromecast/xo_NDh5CZA8)
 * ["C" is for Chromecast: hacking digital signage](http://labs.cooperhewitt.org/2013/c-is-for-chromecast-hacking-digital-signage/)
