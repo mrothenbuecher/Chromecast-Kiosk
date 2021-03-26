@@ -1,6 +1,6 @@
 package de.michaelkuerbis.presenter.utils;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import su.litvak.chromecast.api.v2.Response;
 
