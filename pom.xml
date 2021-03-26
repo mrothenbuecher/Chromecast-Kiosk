@@ -7,6 +7,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<slf4j.version>[1.7.2,1.7.100]</slf4j.version>
+		<log4j.version>2.14.1</log4j.version>
 		<jersey.version>2.33</jersey.version>
 	</properties>
 	<build>
@@ -83,12 +84,12 @@
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>2.7</version>
+			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.13.2</version>
+			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>su.litvak.chromecast</groupId>
