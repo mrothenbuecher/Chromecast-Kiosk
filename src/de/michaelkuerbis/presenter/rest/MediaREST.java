@@ -26,7 +26,11 @@ public class MediaREST {
 
 	@GET
 	@Path("/get/{file}")
-	public Response getMedia(@PathParam("file") final String file) {
+	public Response getMedia(@PathParam("file") String fname) {
+		if(fname == null || fname.isEmpty()) {
+			return Response.status(Response.Status.BAD_REQUEST).entity("file must be provided").build();
+		}
+		final String file = fname.replaceAll("\\.", "").replaceAll("/", "");
 		String path = webRequest.getServletContext().getRealPath("/WEB-INF/media");
 		File f = new File(path+File.separator+file);
 		if(f.exists()){
@@ -59,7 +63,11 @@ public class MediaREST {
 	
 	@DELETE
 	@Path("/{file}")
-	public Response delete(@PathParam("file") String file) {
+	public Response delete(@PathParam("file") String fname) {
+		if(fname == null || fname.isEmpty()) {
+			return Response.status(Response.Status.BAD_REQUEST).entity("file must be provided").build();
+		}
+		final String file = fname.replaceAll("\\.", "").replaceAll("/", "");
 		String path = webRequest.getServletContext().getRealPath("/WEB-INF/media");
 		File f = new File(path+File.separator+file);
 		if(f.exists()){
