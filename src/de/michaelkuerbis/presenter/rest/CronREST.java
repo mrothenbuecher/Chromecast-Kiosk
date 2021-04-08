@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -11,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import net.redhogs.cronparser.CronExpressionDescriptor;
@@ -29,6 +31,7 @@ public class CronREST {
 	private HttpServletRequest webRequest;
 
 	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/add/{target}")
 	public Response addChromecast(@PathParam("target") String target,
 			@FormParam("name") String name, @FormParam("url") String url,

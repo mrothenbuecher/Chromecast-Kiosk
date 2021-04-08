@@ -3,10 +3,12 @@ package de.michaelkuerbis.presenter.rest;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import su.litvak.chromecast.api.v2.Application;
@@ -20,6 +22,7 @@ import de.michaelkuerbis.presenter.utils.Settings;
 public class StartREST {
 
 	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/{ip}")
 	public Response startCast(@PathParam("ip") String ip,
 			@FormParam("url") String url, @FormParam("reload") int reload) {
