@@ -1,13 +1,14 @@
 (function() {
     function launch(ip, name) {
-        $.post("rest/start/" + ip, {
+        $.post("rest/start/" + ip+"?"+$.param({
             url: $("#sender").find('#url').val(),
             reload: $("#sender").find('#refresh').val(),
-        }).done(function() {
+        })).done(function() {
             toastr['info']("Started on " + name + " successfully");
         }).fail(function() {
             toastr['error']("Error on " + name);
         });
+		
     }
 
     $(document).ready(function() {

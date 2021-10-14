@@ -8,6 +8,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -22,10 +23,10 @@ import de.michaelkuerbis.presenter.utils.Settings;
 public class StartREST {
 
 	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	//@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("/{ip}")
 	public Response startCast(@PathParam("ip") String ip,
-			@FormParam("url") String url, @FormParam("reload") int reload) {
+			@QueryParam("url") String url, @QueryParam("reload") int reload) {
 
 		ChromeCast chromecast = new ChromeCast(ip);
 		try {
