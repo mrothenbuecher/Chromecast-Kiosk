@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<slf4j.version>[1.7.2,1.7.100]</slf4j.version>
-		<log4j.version>2.17.0</log4j.version>
+		<log4j.version>2.17.1</log4j.version>
 		<jersey.version>2.33</jersey.version>
 	</properties>
 	<build>
