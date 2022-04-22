@@ -10,14 +10,19 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 
 import de.michaelkuerbis.presenter.servlets.SettingsServlet;
 import de.michaelkuerbis.presenter.utils.CastConnection;
+import de.michaelkuerbis.presenter.utils.CronJob;
 
 @Path("/settings")
 public class SettingsREST {
 
+	private final static Logger log = LogManager.getLogger(SettingsREST.class);
+	
 	@Context
 	private HttpServletRequest webRequest;
 
@@ -59,7 +64,7 @@ public class SettingsREST {
 	public Response updateChromecast(@PathParam("ip") String ip,
 			@PathParam("default") String isDefault) {
 		JSONObject obj = new JSONObject();
-		System.out.println(isDefault +" val:"+(isDefault != null && !isDefault.isEmpty()
+		log.debug(isDefault +" val:"+(isDefault != null && !isDefault.isEmpty()
 				&& isDefault.toLowerCase().equals("true")));
 		if (ip != null && !ip.isEmpty()) {
 			Vector<CastConnection> vec = SettingsServlet.getConnections();

@@ -1,45 +1,54 @@
 package de.michaelkuerbis.presenter.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import it.sauronsoftware.cron4j.Scheduler;
 import it.sauronsoftware.cron4j.SchedulerListener;
+import it.sauronsoftware.cron4j.Task;
+import it.sauronsoftware.cron4j.TaskExecutionContext;
 import it.sauronsoftware.cron4j.TaskExecutor;
 import su.litvak.chromecast.api.v2.Application;
 import su.litvak.chromecast.api.v2.ChromeCast;
 import su.litvak.chromecast.api.v2.Status;
 
-public class CronJob implements Runnable {
+public class CronJob extends Task {
 
+	private final static Logger log = LogManager.getLogger(CronJob.class);
+	
+	private Scheduler scheduler = new Scheduler();
+	
 	private String url, target;
 	private String pattern, name;
 
-	private Scheduler scheduler;
+	//private Scheduler scheduler;
 
-	private int reload;
+	private long reload;
 
 	public CronJob(String target, String url, String pattern, String nam,
-			int reload) {
+			long reload) {
 		this.url = url;
 		this.target = target;
 		this.pattern = pattern;
 		this.name = nam;
 		this.reload = reload;
-		this.scheduler = new Scheduler();
+		//this.scheduler = new Scheduler();
 		this.scheduler.addSchedulerListener(new SchedulerListener() {
 
 			@Override
 			public void taskFailed(TaskExecutor arg0, Throwable arg1) {
-				System.out.println("task " + name + " failed reason: "
+				log.warn("task " + name + " failed reason: "
 						+ arg1.getMessage());
 			}
 
 			@Override
 			public void taskLaunching(TaskExecutor arg0) {
-				System.out.println("task " + name + " started");
+				log.info("task " + name + " started");
 			}
 
 			@Override
 			public void taskSucceeded(TaskExecutor arg0) {
-				System.out.println("task " + name + " succeeded");
+				log.info("task " + name + " succeeded");
 			}
 
 		});
@@ -50,28 +59,8 @@ public class CronJob implements Runnable {
 		scheduler.start();
 	}
 	
-	@Override
-	public void run(){
-		ChromeCast chromecast = new ChromeCast(target);
-		try {
-			chromecast.connect();
-			if (chromecast.isConnected()) {
-				Status status = chromecast.getStatus();
-				if (chromecast.isAppAvailable(Settings.appId)) {
-					Application app = chromecast.launchApp(Settings.appId);
-					chromecast.send("urn:x-cast:de.michaelkuerbis.kiosk",
-							new KioskUpdateRequest(url, reload));
-					return;
-				} else
-					throw new Exception("app is not available");
-			} else {
-				throw new Exception(
-						"chromecast did not react / ip of chromecast may wrong");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void stop() {
+		scheduler.stop();
 	}
 
 	public String getUrl() {
@@ -86,7 +75,7 @@ public class CronJob implements Runnable {
 		return pattern;
 	}
 
-	public int getReload() {
+	public long getReload() {
 		return reload;
 	}
 
@@ -116,6 +105,29 @@ public class CronJob implements Runnable {
 	
 	public Scheduler getScheduler(){
 		return scheduler;
+	}
+
+	@Override
+	public void execute(TaskExecutionContext arg0) throws RuntimeException {
+		ChromeCast chromecast = new ChromeCast(target);
+		try {
+			chromecast.connect();
+			if (chromecast.isConnected()) {
+				Status status = chromecast.getStatus();
+				if (chromecast.isAppAvailable(Settings.appId)) {
+					Application app = chromecast.launchApp(Settings.appId);
+					chromecast.send("urn:x-cast:de.michaelkuerbis.kiosk",
+							new KioskUpdateRequest(url, reload));
+					return;
+				} else
+					throw new Exception("app is not available");
+			} else {
+				throw new Exception(
+						"chromecast did not react / ip of chromecast may wrong");
+			}
+		} catch (Exception e) {
+			log.error(e);
+		}
 	}
 
 }

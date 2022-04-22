@@ -11,11 +11,11 @@ public class KioskUpdateRequest implements Request {
     @JsonProperty
     final String type;
     @JsonProperty("refresh")
-    final int refresh;
+    final long refresh;
 	
     private Long requestId;
     
-    public KioskUpdateRequest(String url, int refresh){
+    public KioskUpdateRequest(String url, long refresh){
     	this.url = url;
     	this.refresh = refresh;
     	this.type = "load";

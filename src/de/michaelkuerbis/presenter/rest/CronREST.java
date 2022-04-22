@@ -99,6 +99,7 @@ public class CronREST {
 			Vector<CronJob> vec = CronServlet.getCronJobs();
 			for (CronJob con : vec) {
 				if (con.getTarget().equals(target) && con.getName().equals(name)) {
+					con.stop();
 					vec.remove(con);
 					CronServlet.setCronJobs(vec);
 					if (CronServlet.saveSettings(this.webRequest

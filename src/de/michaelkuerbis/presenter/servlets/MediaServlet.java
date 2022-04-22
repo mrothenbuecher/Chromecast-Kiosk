@@ -15,9 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import de.michaelkuerbis.presenter.rest.SettingsREST;
+
 @MultipartConfig
 public class MediaServlet extends HttpServlet {
 
+	private final static Logger log = LogManager.getLogger(MediaServlet.class);
+	
 	private static final long serialVersionUID = -8435883813255134209L;
 
 	@Override
@@ -34,7 +41,7 @@ public class MediaServlet extends HttpServlet {
 		} else {
 			response.setStatus(400);
 		}
-		System.out.println(path);
+		log.debug(path);
 		fileContent.close();
 		// ... (do your job here)
 	}
